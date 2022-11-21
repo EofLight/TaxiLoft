@@ -1,0 +1,8 @@
+.menu-list{
+    list-style-type: none;
+    display: flex;
+    margin-right: 5rem;
+}
+.menu-item{
+    margin-left: 3rem;
+}

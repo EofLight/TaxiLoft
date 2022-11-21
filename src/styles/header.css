@@ -1,0 +1,26 @@
+.header {
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10rem;
+  background-color: #1c1a19;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logoImg {
+  margin-left: 1rem;
+}
+.header__logoTitle {
+  margin-left: 1rem;
+}
