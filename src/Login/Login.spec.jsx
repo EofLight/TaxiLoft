@@ -6,6 +6,6 @@ describe("Login", () => {
   it("renders correctly", () => {
     const {getByLabelText} = render(<Login/>)
     expect(getByLabelText('Email:')).toHaveAttribute('name','email');
-    expect(getByLabelText('Password:')).toHaveAttribute('name','password');
+    expect(getByLabelText('Пароль:')).toHaveAttribute('name','password');
   });
 });

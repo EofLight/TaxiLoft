@@ -2,7 +2,7 @@
 import React from "react";
 import logoImg from "./img/logoImg.svg";
 import logoTitle from "./img/logoTitle.svg";
-import {Login} from "./Login/Login";
+import { Login } from "./Login/Login";
 import { Map } from "./Map/Map";
 import { LogOut } from "./Login/LogOut";
 import { Profile } from "./Profile/Profile";
@@ -25,27 +25,39 @@ function MyHeader() {
     </header>
   );
 }*/
-const PAGES = { 
-  login:<Login />,
-  map: <Map />, 
-  profile: <Profile />, 
-  logOut: <LogOut /> };
-class App extends React.Component {
-  state = { currentPage: "login" };
 
-  navigateTo = (page) => {
-    this.setState({ currentPage: page });
+function App() {
+  const [currentPage, setCurrentPage] = React.useState("login");
+  const [isLogin, setIsLogin] = React.useState(false);
+  const PAGES = {
+    login: <Login />,
+    map: <Map />,
+    profile: <Profile />,
+    logOut: <LogOut />,
   };
-  render() {
+  const navigateTo = (page) => {
+    if (page === "login") setIsLogin(false);
+    //console.log("navigate");
+    setCurrentPage(page);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //console.log("tut");
+    setIsLogin(true);
+    navigateTo("map");
+  };
+
+  if (isLogin) {
     return (
-      <>
+      <div>
         <header>
           <nav>
             <ul>
               <li>
                 <button
                   onClick={() => {
-                    this.navigateTo("map");
+                    navigateTo("map");
                   }}
                 >
                   Карта
@@ -54,7 +66,7 @@ class App extends React.Component {
               <li>
                 <button
                   onClick={() => {
-                    this.navigateTo("profile");
+                    navigateTo("profile");
                   }}
                 >
                   Профиль
@@ -63,7 +75,7 @@ class App extends React.Component {
               <li>
                 <button
                   onClick={() => {
-                    this.navigateTo("login");
+                    navigateTo("login");
                   }}
                 >
                   Выйти
@@ -73,13 +85,59 @@ class App extends React.Component {
           </nav>
         </header>
         <main>
-          <section>
-            {PAGES[this.state.currentPage]}
-          </section>
+          <section>{PAGES[currentPage]}</section>
         </main>
+      </div>
+    );
+  } else {
+    return (
+      <>
+        <Login handle={handleSubmit} />
       </>
     );
   }
+  /*return (
+    
+
+    <div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <button
+                onClick={() => {
+                  navigateTo("map");
+                }}
+              >
+                Карта
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {
+                  navigateTo("profile");
+                }}
+              >
+                Профиль
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => {
+                  navigateTo("login");
+                }}
+              >
+                Выйти
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section>{PAGES[currentPage]}</section>
+      </main>
+    </div>
+  );*/
 }
 
 export default App;

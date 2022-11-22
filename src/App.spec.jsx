@@ -1,8 +1,8 @@
-import React from "react";
+/*import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import App from "./App";
 
-jest.mock("./Login/Login.jsx", () => ({ Login: () => <div>Login content</div> }));
+//jest.mock("./Login/Login.jsx", () => ({ Login: () => <div>Login content</div> }));
 jest.mock("./Map/Map.jsx", () => ({ Map: () => <div>Map content</div> }));
 jest.mock("./Profile/Profile.jsx", () => ({ Profile: () => <div>Profile content</div> }));
 //jest.mock("./LogOut", () => ({ LogOut: () => <div>LogOut content</div> }));
@@ -23,3 +23,4 @@ describe("App", () => {
     });
   });
 });
+*/
